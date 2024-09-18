@@ -11,6 +11,6 @@ jobs:
       - name: Check API Status
         id: api_status
         run: |
-          response=$(curl -s -o /dev/null -w "%{http_code}" -u "servicenowint25.im:2R#ZYBqPV2*'8j" https://pgglobalenterprise.service-now.com/api/now/table/incident?sysparm_query=assignment_group=2483d38f4fab22004679cf5d0210c7f3&assigned_to=&state=1)
+          response=$(curl -s -o /dev/null -w "%{http_code}" -u http://137.181.80.140:6330/newTicket)
           echo "${response}"
 
