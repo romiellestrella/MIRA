@@ -12,15 +12,5 @@ jobs:
         id: api_status
         run: |
           response=$(curl -s -o /dev/null -w "%{http_code}" -u "servicenowint25.im:2R#ZYBqPV2*'8j" https://pgglobalenterprise.service-now.com/api/now/table/incident?sysparm_query=assignment_group=2483d38f4fab22004679cf5d0210c7f3&assigned_to=&state=1)
-          echo "STATE=${response}" >> $GITHUB_ENV
- 
-      - name: Use API Status
-        id: api_status_check
-        run: |
-          if [ "${{ env.STATE }}" = "200" ]; then
-            echo "API endpoint is up and running"
-            echo "send_email=false" >> $GITHUB_ENV
-          else
-            echo "API endpoint is not accessible"
-            echo "send_email=true" >> $GITHUB_ENV
-          fi
+          echo "${response}"
+
