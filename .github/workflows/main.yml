@@ -11,6 +11,6 @@ jobs:
       - name: Check API Status
         id: api_status
         run: |
-          response=$(curl -s -o /dev/null -w "%{http_code}" -u http://137.181.80.140:6330/newTicket)
-          echo "${response}"
+          response=$(curl -s -o /dev/null -w "%{http_code}" http://137.181.80.140:6330/newTicket)
+          echo ${response}
 
